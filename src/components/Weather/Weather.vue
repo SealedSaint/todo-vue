@@ -16,7 +16,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { TextSubmit } from '@/components';
+import TextSubmit from '@/components/TextSubmit.vue';
 
 export default {
   name: 'weather',

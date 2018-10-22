@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Progress from '@/views/Progress/Progress.vue';
-import Todo from '@/views/Todo/Todo.vue';
-import Weather from '@/views/Weather/Weather.vue';
+import Progress from '@/components/Todo/Progress.vue';
+import Todo from '@/components/Todo/Todo.vue';
+import Weather from '@/components/Weather/Weather.vue';
 
 Vue.use(Router);
 

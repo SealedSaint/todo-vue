@@ -15,7 +15,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Todo } from '@/classes';
-import { TextSubmit, TodoTask } from '@/components';
+import TextSubmit from '@/components/TextSubmit.vue';
+import TodoTask from './TodoTask.vue';
 
 export default {
   name: 'todo',

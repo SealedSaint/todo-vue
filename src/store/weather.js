@@ -1,16 +1,11 @@
 /* eslint no-param-reassign: 0 */
 import _ from 'lodash';
-import Vue from 'vue';
-import Vuex from 'vuex';
 
 import { getCityWeather } from '@/lib/openweather';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default {
   state: {
     cityWeather: {},
-    todos: [],
   },
   getters: {
     alphabeticCityWeather(state) {
@@ -19,17 +14,8 @@ export default new Vuex.Store({
         .sortBy('city')
         .value();
     },
-    completeTodos(state) {
-      return state.todos.filter(({ done }) => done);
-    },
-    incompleteTodos(state) {
-      return state.todos.filter(({ done }) => !done);
-    },
   },
   mutations: {
-    ADD_TODO(state, todo) {
-      state.todos = [...state.todos, todo];
-    },
     ADD_CITY_WEATHER(state, cityWeatherData) {
       state.cityWeather = {
         ...state.cityWeather,
@@ -45,4 +31,4 @@ export default new Vuex.Store({
       commit('ADD_CITY_WEATHER', cityWeatherData);
     },
   },
-});
+};

@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { TodoTask } from '@/components';
+import { mapGetters } from 'vuex';
+import TodoTask from './TodoTask.vue';
 
 export default {
   name: 'todo',

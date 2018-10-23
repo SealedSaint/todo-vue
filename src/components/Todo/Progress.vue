@@ -12,7 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import TodoTask from './TodoTask.vue';
+import TodoTask from './TodoTask.component.vue';
 
 export default {
   name: 'todo',

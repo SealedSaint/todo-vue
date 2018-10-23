@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import TextSubmit from '@/components/TextSubmit.vue';
+import { mapActions, mapGetters } from 'vuex';
+import TextSubmit from '@/components/TextSubmit.component.vue';
 
 export default {
   name: 'weather',
@@ -30,17 +30,17 @@ export default {
     addCityInput: '',
   }),
   methods: {
+    ...mapActions(['getWeatherForCity']),
     addCity() {
       if (!this.addCityInput) return;
 
       this.getWeatherForCity(this.addCityInput);
     },
-    ...mapActions(['getWeatherForCity']),
   },
-}
+};
 </script>
 
-<style>
+<style scoped>
 .city-weather-list {
   display: flex;
   flex-flow: row wrap;

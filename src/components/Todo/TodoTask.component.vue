@@ -1,20 +1,27 @@
 <template>
 <div>
   <label class="todo-task">
-    <input v-model="todo.done" type="checkbox" />
+    <input :checked="todo.done" @change="onTodoChange" type="checkbox" />
     {{ todo.name }}
   </label>
 </div>
 </template>
 
 <script>
-import { Todo } from '@/classes';
+import { mapActions } from 'vuex';
+import Todo from './Todo.class';
 
 export default {
   name: 'TodoTask',
   props: {
     todo: Todo,
-  }
+  },
+  methods: {
+    ...mapActions(['toggleTodo']),
+    onTodoChange(e) {
+      this.toggleTodo(this.todo);
+    },
+  },
 }
 </script>
 

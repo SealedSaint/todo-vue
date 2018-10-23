@@ -2,8 +2,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import todo from './todo';
-import weather from './weather';
+import todo from '@/components/Todo/todo.store';
+import weather from '@/components/Weather/weather.store';
 
 Vue.use(Vuex);
 

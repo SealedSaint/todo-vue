@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CityWeather } from '@/classes';
+import CityWeather from '@/components/Weather/CityWeather.class';
 
 const getCityWeather = async (cityName) => {
   const { data: raw } = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=0080f52e664dfc7eb8ce0c1912941fa2&units=imperial`);

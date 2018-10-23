@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import TextSubmit from '@/components/TextSubmit.vue';
+import { mapActions, mapGetters } from 'vuex';
+import TextSubmit from '@/components/TextSubmit.component.vue';
 
 export default {
   name: 'weather',
@@ -37,7 +37,7 @@ export default {
     },
     ...mapActions(['getWeatherForCity']),
   },
-}
+};
 </script>
 
 <style>

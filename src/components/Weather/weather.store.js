@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import _ from 'lodash';
 
-import { getCityWeather } from '@/lib/openweather';
+import { getCityWeather } from '@/lib/openweather.lib';
 
 export default {
   state: {

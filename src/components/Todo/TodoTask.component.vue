@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Todo } from '@/classes';
+import Todo from './Todo.class';
 
 export default {
   name: 'TodoTask',

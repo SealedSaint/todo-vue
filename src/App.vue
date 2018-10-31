@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/todo">Todo</router-link> |
-      <router-link to="/progress">Progress</router-link> |
-      <router-link to="/weather">Weather</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar class="indigo white--text">
+      <v-toolbar-title>{{ currentRoute }}</v-toolbar-title>
+      <v-spacer />
+      <v-toolbar-items>
+        <v-btn v-for="page in pages" :key="page.route" flat :to="page.route" class="white--text">{{ page.name }}</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-content>
+      <div class="content-container">
+        <router-view />
+      </div>
+    </v-content>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<script>
+export default {
+  name: 'App',
+  data: () => ({
+    pages: [
+      { name: 'Todo', route: 'todo' },
+      { name: 'Todo Progress', route: 'progress' },
+      { name: 'Weather', route: 'weather' },
+    ],
+  }),
+  computed: {
+    currentRoute() {
+      return this.$route.name;
+    },
+  },
+  methods: {
+    goTo(routeName) {
+      this.$router.push(routeName);
+    }
+  },
+};
+</script>
+
+<style scoped>
+.content-container {
   text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  padding: 15px;
 }
 </style>

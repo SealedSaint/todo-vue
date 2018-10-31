@@ -1,23 +1,11 @@
-<template>
-  <div class="progress">
-    <h1>Progress</h1>
-    <p>These are the tasks you have completed.</p>
-    <div class="todo-list">
-      <div class="incomplete-todos">
-        <TodoTask v-for="(todo, i) in completeTodos" :key="i" :todo="todo" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { mapGetters } from 'vuex';
-import TodoTask from './TodoTask.component.vue';
+import TodoTaskList from './TodoTaskList.component.vue';
 
 export default {
   name: 'todo',
   components: {
-    TodoTask,
+    TodoTaskList,
   },
   computed: {
     ...mapGetters([
@@ -26,3 +14,14 @@ export default {
   },
 };
 </script>
+
+<template>
+<v-container fluid>
+  <v-layout v-if="completeTodos.length" justify-center>
+    <v-flex sm6>
+      <TodoTaskList :todos="completeTodos" header="Completed" />
+    </v-flex>
+  </v-layout>
+  <h1 v-else>No Complete Todos!</h1>
+</v-container>
+</template>

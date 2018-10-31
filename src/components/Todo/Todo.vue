@@ -1,35 +1,21 @@
-<template>
-<div>
-  <h1>Todo</h1>
-  <div class="add-todo">
-    <TextSubmit v-model="addTodoInput" :submit="addTodo" buttonText="Add Todo" />
-  </div>
-  <div class="todo-list">
-    <div class="incomplete-todos">
-      <TodoTask v-for="(todo, i) in incompleteTodos" :key="i" :todo="todo" />
-    </div>
-  </div>
-</div>
-</template>
-
 <script>
 import { mapGetters } from 'vuex'
 import Todo from './Todo.class.js';
 import TextSubmit from '@/components/TextSubmit.component.vue';
-import TodoTask from './TodoTask.component.vue';
+import TodoTaskList from './TodoTaskList.component.vue';
 
 export default {
   name: 'todo',
   components: {
     TextSubmit,
-    TodoTask,
-  },
-  computed: {
-    ...mapGetters(['incompleteTodos']),
+    TodoTaskList,
   },
   data: () => ({
     addTodoInput: '',
   }),
+  computed: {
+    ...mapGetters(['incompleteTodos']),
+  },
   methods: {
     addTodo() {
       if (this.addTodoInput === '') return;
@@ -41,8 +27,17 @@ export default {
 };
 </script>
 
-<style scoped>
-.add-todo {
-  margin: 10px 0px;
-}
-</style>
+<template>
+<v-container fluid>
+  <v-layout justify-center>
+    <v-flex sm6>
+      <TextSubmit v-model="addTodoInput" :submit="addTodo" buttonText="Add Todo" label="Todo Name" />
+    </v-flex>
+  </v-layout>
+  <v-layout justify-center>
+    <v-flex sm6>
+      <TodoTaskList :todos="incompleteTodos" header="Yet to Complete" />
+    </v-flex>
+  </v-layout>
+</v-container>
+</template>

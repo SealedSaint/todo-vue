@@ -1,7 +1,9 @@
 /* eslint no-param-reassign: 0 */
+import Todo from './Todo.class';
+
 export default {
   state: {
-    todos: [],
+    todos: [new Todo('Default Task')],
   },
   getters: {
     completeTodos(state) {

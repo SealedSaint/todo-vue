@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <input :value="value" @input="input" @keyup.enter="submit" type="text" />
-    <button @click="submit">{{ buttonText }}</button>
+  <div class="flex-row">
+    <v-text-field :label="label" :value="value" @input.native="input" @keyup.native.enter="submit" type="text" />
+    <v-btn @click="submit">{{ buttonText }}</v-btn>
   </div>
 </template>
 
@@ -9,9 +9,10 @@
 export default {
   name: 'TextSubmit',
   props: {
-    value: String,
-    submit: Function,
     buttonText: { type: String, default: 'Submit' },
+    label: String,
+    submit: Function,
+    value: String,
   },
   methods: {
     input(e) {
@@ -20,3 +21,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.flex-row {
+  display: flex;
+}
+</style>
